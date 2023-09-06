@@ -1,0 +1,34 @@
+{
+  "description": [
+    "Xmx",
+    "Xms",
+    "Xmn",
+    "DEBUG"
+  ],
+  "defaultValue": {
+    "Xmx": "700m",
+    "Xms": "700m",
+    "Xmn": "200m",
+    "DEBUG": ""
+  },
+  "dynamic-datasource": {
+    "daily": [
+      "700m",
+      "700m",
+      "200m",
+      ""
+    ],
+    "pre": [
+      "4g",
+      "2g",
+      "1g",
+      ""
+    ],
+    "prod": [
+      "4g",
+      "2g",
+      "1g",
+      ""
+    ]
+  }
+}
