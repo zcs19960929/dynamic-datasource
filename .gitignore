@@ -1,0 +1,12 @@
+# Default ignored files
+.project
+.classpath
+logs/
+doc/
+target/
+.idea/**
+*.iml
+.DS_Store
+spring-shell.log
+*/**/rebel.xml
+*/.flattened-pom.xml
