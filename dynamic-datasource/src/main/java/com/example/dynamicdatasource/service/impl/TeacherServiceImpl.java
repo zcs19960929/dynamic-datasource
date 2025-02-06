@@ -1,6 +1,5 @@
 package com.example.dynamicdatasource.service.impl;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.dynamicdatasource.entity.TeacherPO;
 import com.example.dynamicdatasource.mapper.TeacherMapper;
@@ -15,6 +14,5 @@ import org.springframework.stereotype.Service;
  * @module
  */
 @Service
-@DS("slave")
 public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, TeacherPO> implements TeacherService{
 }

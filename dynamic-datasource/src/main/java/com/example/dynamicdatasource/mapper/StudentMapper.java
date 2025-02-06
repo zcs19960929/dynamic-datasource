@@ -1,5 +1,6 @@
 package com.example.dynamicdatasource.mapper;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.dynamicdatasource.entity.StudentPO;
 
@@ -10,5 +11,6 @@ import com.example.dynamicdatasource.entity.StudentPO;
  * @author zhangchangsheng
  * @module
  */
+@DS("master")
 public interface StudentMapper extends BaseMapper<StudentPO> {
 }
