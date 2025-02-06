@@ -105,6 +105,14 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <scope>compile</scope>
+            <version>3.1.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
