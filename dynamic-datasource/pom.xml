@@ -20,11 +20,19 @@
     </properties>
 
     <dependencies>
+        <!-- SQL分析与打印 -->
+        <!-- https://mvnrepository.com/artifact/p6spy/p6spy -->
+        <dependency>
+            <groupId>com.github.gavlyukovskiy</groupId>
+            <artifactId>p6spy-spring-boot-starter</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-            <version>4.1.3</version>
+            <version>4.3.1</version>
         </dependency>
 
         <dependency>
@@ -44,12 +52,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.20</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.2.12</version>
         </dependency>
 
         <dependency>
@@ -233,6 +235,14 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+        </profile>
+        <profile>
+            <id>p6spy</id>
+            <properties>
+                <env>p6spy</env>
+                <buildEnv>p6spy</buildEnv>
+                <profiles.active>p6spy</profiles.active>
+            </properties>
         </profile>
         <profile>
             <id>daily</id>

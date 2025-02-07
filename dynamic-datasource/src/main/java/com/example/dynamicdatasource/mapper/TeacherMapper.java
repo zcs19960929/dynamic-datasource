@@ -10,7 +10,7 @@ import com.example.dynamicdatasource.entity.TeacherPO;
  *
  * @author zhangchangsheng
  */
-@DS("slave")
+@DS("slave_1")
 public interface TeacherMapper extends BaseMapper<TeacherPO> {
 
 }

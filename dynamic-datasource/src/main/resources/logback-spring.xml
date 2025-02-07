@@ -45,7 +45,7 @@
     </appender>
 
     <appender name="scheduleRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${baseDirectory}/customer-data-platform-web_filter.log</file>
+        <file>${baseDirectory}/dynamic-datasource_filter.log</file>
         <immediateFlush>false</immediateFlush>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${baseDirectory}/dynamic-datasource_filter.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -97,6 +97,15 @@
             <appender-ref ref="asyncScheduleRollingFileAppender"/>
         </root>
     </springProfile>
+
+    <springProfile name="p6spy">
+        <root level="INFO">
+            <appender-ref ref="console"/>
+            <appender-ref ref="asyncRollingFileAppender"/>
+            <appender-ref ref="asyncScheduleRollingFileAppender"/>
+        </root>
+    </springProfile>
+
     <springProfile name="daily">
         <root level="INFO">
             <appender-ref ref="asyncRollingFileAppender"/>
