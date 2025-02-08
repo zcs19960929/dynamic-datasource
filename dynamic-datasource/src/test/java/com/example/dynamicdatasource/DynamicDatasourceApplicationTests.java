@@ -5,6 +5,7 @@ import com.example.dynamicdatasource.entity.StudentPO;
 import com.example.dynamicdatasource.entity.TeacherPO;
 import com.example.dynamicdatasource.service.StudentService;
 import com.example.dynamicdatasource.service.TeacherService;
+import com.example.dynamicdatasource.service.TransactionalService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -60,5 +61,21 @@ class DynamicDatasourceApplicationTests {
                 .eq(TeacherPO::getName, "teacher ma")
                 .last("limit 1"));
         System.out.println(teacherPO);
+    }
+
+    @Resource
+    private TransactionalService transactionalService;
+
+    @Test
+    void testTransactional() {
+        StudentPO studentPO = StudentPO.builder()
+                .name("lisi")
+                .age(16)
+                .build();
+        TeacherPO teacherPO = TeacherPO.builder()
+                .name("teacher zhang")
+                .age(38)
+                .build();
+        transactionalService.saveTeacherAndStudent(teacherPO, studentPO);
     }
 }
