@@ -20,6 +20,13 @@
     </properties>
 
     <dependencies>
+        <!-- shardingsphere -->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+
         <!-- SQL分析与打印 -->
         <!-- https://mvnrepository.com/artifact/p6spy/p6spy -->
         <dependency>

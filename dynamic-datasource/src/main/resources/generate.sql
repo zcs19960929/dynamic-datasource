@@ -20,3 +20,16 @@ CREATE TABLE teacher(
                         update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updateTime',
                         PRIMARY KEY (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'teacher';
+
+
+-- auto Generated on 2025-02-08
+-- DROP TABLE IF EXISTS account;
+CREATE TABLE account(
+                        id BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'id',
+                        tenant_id BIGINT (15) NOT NULL COMMENT 'tenantId',
+                        `name` VARCHAR (50) NOT NULL COMMENT 'name',
+                        `desc` VARCHAR (50) NOT NULL DEFAULT '' COMMENT 'desc',
+                        create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'createTime',
+                        update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updateTime',
+                        PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'account';

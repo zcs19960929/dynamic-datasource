@@ -1,8 +1,10 @@
 package com.example.dynamicdatasource;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.example.dynamicdatasource.entity.AccountPO;
 import com.example.dynamicdatasource.entity.StudentPO;
 import com.example.dynamicdatasource.entity.TeacherPO;
+import com.example.dynamicdatasource.service.AccountService;
 import com.example.dynamicdatasource.service.StudentService;
 import com.example.dynamicdatasource.service.TeacherService;
 import com.example.dynamicdatasource.service.TransactionalService;
@@ -77,5 +79,18 @@ class DynamicDatasourceApplicationTests {
                 .age(38)
                 .build();
         transactionalService.saveTeacherAndStudent(teacherPO, studentPO);
+    }
+
+
+    @Resource
+    private AccountService accountService;
+
+    @Test
+    void testCreateAccount() {
+        for (int i = 1; i <= 12; i++) {
+            AccountPO accountPO = new AccountPO();
+            accountPO.setName("hahaha" + i).setTenantId((long) i);
+            accountService.save(accountPO);
+        }
     }
 }
