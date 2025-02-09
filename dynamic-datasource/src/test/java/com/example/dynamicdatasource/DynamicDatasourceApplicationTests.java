@@ -14,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -87,10 +89,21 @@ class DynamicDatasourceApplicationTests {
 
     @Test
     void testCreateAccount() {
+        List<AccountPO> list = new ArrayList<>();
         for (int i = 1; i <= 12; i++) {
             AccountPO accountPO = new AccountPO();
-            accountPO.setName("hahaha" + i).setTenantId((long) i);
-            accountService.save(accountPO);
+            accountPO.setName("aaa" + i).setTenantId((long) i);
+            list.add(accountPO);
         }
+        accountService.saveBatch(list);
+        System.out.println(list);
+    }
+
+    @Test
+    void testQueryAccount() {
+        List<AccountPO> list = accountService.listByTenantId(6L);
+        list.forEach(System.out::println);
+        list = accountService.list();
+        list.forEach(System.out::println);
     }
 }
