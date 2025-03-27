@@ -1,35 +1,67 @@
 -- auto Generated on 2025-02-06
 -- DROP TABLE IF EXISTS student;
-CREATE TABLE student(
-                        id BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                        `name` VARCHAR (50) NOT NULL DEFAULT '' COMMENT 'name',
-                        age INT (11) NOT NULL DEFAULT -1 COMMENT 'age',
-                        create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'createTime',
-                        update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updateTime',
-                        PRIMARY KEY (id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'student';
+CREATE TABLE student
+(
+    id          BIGINT(15)  NOT NULL AUTO_INCREMENT COMMENT 'id',
+    `name`      VARCHAR(50) NOT NULL DEFAULT '' COMMENT 'name',
+    age         INT(11)     NOT NULL DEFAULT -1 COMMENT 'age',
+    create_time TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'createTime',
+    update_time TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updateTime',
+    PRIMARY KEY (id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT 'student';
 
 
 -- auto Generated on 2025-02-06
 -- DROP TABLE IF EXISTS teacher;
-CREATE TABLE teacher(
-                        id BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                        `name` VARCHAR (50) NOT NULL DEFAULT '' COMMENT 'name',
-                        age INT (11) NOT NULL DEFAULT -1 COMMENT 'age',
-                        create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'createTime',
-                        update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updateTime',
-                        PRIMARY KEY (id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'teacher';
+CREATE TABLE teacher
+(
+    id          BIGINT(15)  NOT NULL AUTO_INCREMENT COMMENT 'id',
+    `name`      VARCHAR(50) NOT NULL DEFAULT '' COMMENT 'name',
+    age         INT(11)     NOT NULL DEFAULT -1 COMMENT 'age',
+    create_time TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'createTime',
+    update_time TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updateTime',
+    PRIMARY KEY (id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT 'teacher';
 
 
 -- auto Generated on 2025-02-08
 -- DROP TABLE IF EXISTS account;
-CREATE TABLE account(
-                        id BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                        tenant_id BIGINT (15) NOT NULL COMMENT 'tenantId',
-                        `name` VARCHAR (50) NOT NULL COMMENT 'name',
-                        `desc` VARCHAR (50) NOT NULL DEFAULT '' COMMENT 'desc',
-                        create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'createTime',
-                        update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updateTime',
-                        PRIMARY KEY (id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'account';
+CREATE TABLE account
+(
+    id          BIGINT(15)  NOT NULL AUTO_INCREMENT COMMENT 'id',
+    tenant_id   BIGINT(15)  NOT NULL COMMENT 'tenantId',
+    `name`      VARCHAR(50) NOT NULL COMMENT 'name',
+    `desc`      VARCHAR(50) NOT NULL DEFAULT '' COMMENT 'desc',
+    create_time TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'createTime',
+    update_time TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updateTime',
+    PRIMARY KEY (id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT 'account';
+
+DROP TABLE IF EXISTS t_order_0;
+CREATE TABLE IF NOT EXISTS t_order_0
+(
+    id            BIGINT      NOT NULL,
+    tenant_id     BIGINT      NOT NULL,
+    status        VARCHAR(50) NOT NULL,
+    `description` VARCHAR(50)          DEFAULT '',
+    create_time   TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    update_time   TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+DROP TABLE IF EXISTS t_order_1;
+CREATE TABLE IF NOT EXISTS t_order_1
+(
+    id            BIGINT      NOT NULL,
+    tenant_id     BIGINT      NOT NULL,
+    status        VARCHAR(50) NOT NULL,
+    `description` VARCHAR(50)          DEFAULT '',
+    create_time   TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    update_time   TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;

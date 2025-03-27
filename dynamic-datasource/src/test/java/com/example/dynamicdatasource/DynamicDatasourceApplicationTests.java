@@ -2,18 +2,17 @@ package com.example.dynamicdatasource;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.example.dynamicdatasource.entity.AccountPO;
+import com.example.dynamicdatasource.entity.OrderPO;
 import com.example.dynamicdatasource.entity.StudentPO;
 import com.example.dynamicdatasource.entity.TeacherPO;
-import com.example.dynamicdatasource.service.AccountService;
-import com.example.dynamicdatasource.service.StudentService;
-import com.example.dynamicdatasource.service.TeacherService;
-import com.example.dynamicdatasource.service.TransactionalService;
+import com.example.dynamicdatasource.service.*;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +25,9 @@ class DynamicDatasourceApplicationTests {
 
     @Resource
     private TeacherService teacherService;
+
+    @Resource
+    private OrderService orderService;
 
     @Test
     void contextLoads() {
@@ -105,5 +107,21 @@ class DynamicDatasourceApplicationTests {
         list.forEach(System.out::println);
         list = accountService.list();
         list.forEach(System.out::println);
+    }
+
+    @Test
+    void testCreateOrderWithSnowflakeId() {
+        List<OrderPO> list = new ArrayList<>();
+        for (int i = 1; i <= 12; i++) {
+            OrderPO orderPO = new OrderPO();
+            orderPO.setTenantId((long) i)
+                    .setStatus("init")
+                    .setDescription("test" + i)
+                    .setCreateTime(LocalDateTime.now())
+                    .setUpdateTime(LocalDateTime.now());
+            list.add(orderPO);
+        }
+        orderService.saveBatch(list);
+        System.out.println(list);
     }
 }

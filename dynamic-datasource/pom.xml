@@ -252,6 +252,14 @@
             </properties>
         </profile>
         <profile>
+            <id>shardingsphere</id>
+            <properties>
+                <env>shardingsphere</env>
+                <buildEnv>shardingsphere</buildEnv>
+                <profiles.active>shardingsphere</profiles.active>
+            </properties>
+        </profile>
+        <profile>
             <id>daily</id>
             <properties>
                 <env>daily</env>
