@@ -259,6 +259,16 @@
                 <profiles.active>shardingsphere</profiles.active>
             </properties>
         </profile>
+
+        <profile>
+            <id>generate</id>
+            <properties>
+                <env>generate</env>
+                <buildEnv>generate</buildEnv>
+                <profiles.active>generate</profiles.active>
+            </properties>
+        </profile>
+
         <profile>
             <id>daily</id>
             <properties>

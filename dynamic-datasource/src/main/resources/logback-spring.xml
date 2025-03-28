@@ -114,6 +114,14 @@
         </root>
     </springProfile>
 
+    <springProfile name="generate">
+        <root level="INFO">
+            <appender-ref ref="console"/>
+            <appender-ref ref="asyncRollingFileAppender"/>
+            <appender-ref ref="asyncScheduleRollingFileAppender"/>
+        </root>
+    </springProfile>
+
     <springProfile name="daily">
         <root level="INFO">
             <appender-ref ref="asyncRollingFileAppender"/>
