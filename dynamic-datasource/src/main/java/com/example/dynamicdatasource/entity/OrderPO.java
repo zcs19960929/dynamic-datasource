@@ -1,6 +1,5 @@
 package com.example.dynamicdatasource.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -19,8 +18,7 @@ import java.time.LocalDateTime;
 public class OrderPO {
 
     private Long id;
-
-    @TableField("tenant_id")
+    
     private Long tenantId;
 
     private String status;
